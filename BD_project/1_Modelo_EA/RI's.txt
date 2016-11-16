@@ -1,0 +1,9 @@
+1. Os atributos "nome" e "pin" da entidade "Pessoa" não podem ser nulos.
+2. O atributo "capitalsocial" da entidade "Pessoa Colectiva" não pode ser nulo.
+3. Os atributos "nralvara", "concelho" e "região" da entidade "Leiloeira" não podem ser nulos.
+4. Os atributos "nome" e "tipo" da entidade "Leilão" não podem ser nulos.
+5. O atributo "nrdias" da entidade "Leilão de Recursos" não pode ser nulo.
+6. O atributo "lid" da entidade "Leilão de Recursos" é único e não nulo.
+7. O atributo "valor" da associação "lance" é não nulo.
+8. Apenas os pares de atributos "nif"-"lid" que fazem parte da associação "concorrente" podem participar 
+na associação "lance".
