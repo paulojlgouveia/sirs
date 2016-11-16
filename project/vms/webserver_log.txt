@@ -1,0 +1,32 @@
+
+- installed CentOS 7 minimal
+- no GUI fot security reasons
+
+- created user root : root
+
+- install links (command line browser)
+- install httpd (apache)
+- installed php
+- installed php-mysql
+- installed nmap
+- installed telnet
+- installed gcc
+
+- created user admin : admin
+(it's admin for simplicity, it should be hard to guess)
+- given root priveleges to admin
+
+- added mysql repository
+(in CentOS 7 mysql was replaced by mariadb)
+
+- installed mysql
+- mysql_secure_installation
+ju57 50m3 p455w0rD
+mysql -u root -p
+
+- installed tree
+
+
+
+
+
