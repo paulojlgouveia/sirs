@@ -51,7 +51,7 @@
 			if($safepin != $pin ) {
 				echo("<p>Pin Invalido!</p>\n");
 				$connection = null;
-				echo("<a href=\"login.html\">return</a>");
+				echo("<a href=\"../../login.html\">return</a>");
 				exit();
 			}
 			
@@ -61,12 +61,12 @@
 		?>
 		
 		<head>
-			<meta http-equiv="refresh" content="0; URL=home.html">
+			<meta http-equiv="refresh" content="0; URL=../../home.html">
 			<meta name="keywords" content="automatic redirection">
 		</head>
 		<body>
 			If the page doesn't automatically load click 
-			<a href="home.html">here</a> 
+			<a href="../../home.html">here</a> 
 		</body>
 	</body>
 </html>

@@ -1,7 +1,7 @@
  
 <html>
 	<h1> Sistema de Leiloes de Recursos Maritimos </h1>
-	<a href="home.html">return</a>
+	<a href="../../home.html">return</a>
 	<br><br>
 	
 	<body>
