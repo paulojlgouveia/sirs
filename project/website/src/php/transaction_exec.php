@@ -1,4 +1,9 @@
 
+<?php
+   include("config.php");
+//    session_start();
+?>
+
 <html>
 	<body>
 		<?php
@@ -9,14 +14,6 @@
 			$day = $_REQUEST["day"];		
 
 			$checkbox = $_POST["checkbox"];
-			
-			// Variáveis de conexão à BD
-			$host="db.ist.utl.pt";
-			$user="ist175657";
-			$password="qykd1377";
-			$dbname = $user;
-			$connection = new PDO("mysql:host=" . $host. ";dbname=" . $dbname, $user, $password,
-			array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 			
 			// Descobre os leilões que começaram num determinado dia
 			$sql = "select * from leilao natural join leilaor
@@ -34,7 +31,7 @@
 				echo("<p> Erro na Query:($sql)<p>");
 				exit();
 			}
-									
+			
 			$i = 0;
 			$now = new DateTime(date("Y-m-d H:i:s"));
 			foreach($result as $row){

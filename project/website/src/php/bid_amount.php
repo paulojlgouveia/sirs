@@ -1,19 +1,16 @@
 
+<?php
+   include("config.php");
+//    session_start();
+?>
+
 <html>
 	<h1> Sistema de Leiloes de Recursos Maritimos </h1>
 
 	<body>
 		<?php
 			$lid = $_REQUEST['lid'];
-
-			// Variáveis de conexão à BD
-			$host="db.ist.utl.pt";
-			$user="ist175657";
-			$password="qykd1377";
-			$dbname = $user;
-			$connection = new PDO("mysql:host=" . $host. ";dbname=". $dbname, $user, $password,
-								   array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
-						
+			
 			// Descobre o valor do maior lance						
 			$sql = "select max(valor) as min from lance where leilao=".$lid.";";
 			$result = $connection->query($sql);

@@ -1,18 +1,17 @@
 
+<?php
+   include("config.php");
+//    session_start();
+?>
+
 <html>
+
 	<h1> Sistema de Leiloes de Recursos Maritimos </h1>
-	<a href="../../home.html">return</a>
+	<a href="../../deprecated.html">return</a>
 	<br><br>
 	
 	<body>
 		<?php
-			// Variáveis de conexão à BD
-			$host="db.ist.utl.pt";
-			$user="ist175657";
-			$password="qykd1377";
-			$dbname = $user;
-			$connection = new PDO("mysql:host=" . $host. ";dbname=" . $dbname, $user, $password,
-			array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 			
 			// Descobre os dias em que foram iniciados leilões
 			$sql = "select distinct dia from leilao order by dia";
@@ -28,6 +27,8 @@
 			}
 			echo("</table>\n");
 		?>
+		
 	</body>
+	
 </html>
 

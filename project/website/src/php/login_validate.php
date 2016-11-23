@@ -1,4 +1,11 @@
- 
+
+<?php
+   include("config.php");
+//    session_start();
+?>
+
+
+
 <html>
 	<body>
 		<?php
@@ -19,14 +26,6 @@
 				$pin = test_input($_POST["pin"]);
 			}
 			
-			// Variáveis de conexão à BD
-			$host="db.ist.utl.pt";
-			$user="ist175657";
-			$password="qykd1377";
-			$dbname = $user;
-			$connection = new PDO("mysql:host=" . $host. ";dbname=" . $dbname, $user, $password,
-			array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
-						
 			// Descobre a palavra passe do utilizador
 			$sql = "select * from pessoa where nif=".$nif;
 			$result = $connection->query($sql);
@@ -48,7 +47,7 @@
 			$username = $result["nome"];
 			
 			// Verifica se a palavra passe está correta
-			if($safepin != $pin ) {
+			if($safepin != MD5($pin)) {
 				echo("<p>Pin Invalido!</p>\n");
 				$connection = null;
 				echo("<a href=\"../../login.html\">return</a>");
@@ -61,12 +60,12 @@
 		?>
 		
 		<head>
-			<meta http-equiv="refresh" content="0; URL=../../home.html">
+			<meta http-equiv="refresh" content="0; URL=../../deprecated.html">
 			<meta name="keywords" content="automatic redirection">
 		</head>
 		<body>
 			If the page doesn't automatically load click 
-			<a href="../../home.html">here</a> 
+			<a href="../../deprecated.html">here</a> 
 		</body>
 	</body>
 </html>

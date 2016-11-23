@@ -1,7 +1,12 @@
+
+<?php
+   include("config.php");
+//    session_start();
+?>
  
 <html>
 	<h1> Sistema de Leiloes de Recursos Maritimos </h1>
-	<a href="../../home.html">return</a>
+	<a href="../../deprecated.html">return</a>
 	<br><br>
 	
 	<body>
@@ -9,14 +14,6 @@
 			// Inicia sessão para passar variaveis entre ficheiros php
 			session_start();
 			$nif = $_SESSION['nif'];
-			
-			// Variáveis de conexão à BD
-			$host="db.ist.utl.pt";
-			$user="ist175657";
-			$password="qykd1377";
-			$dbname = $user;
-			$connection = new PDO("mysql:host=" . $host. ";dbname=" . $dbname, $user, $password,
-			array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 			
 			// Descobre os leilões registados
 			$sql = "select * from

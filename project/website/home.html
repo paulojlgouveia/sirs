@@ -1,13 +1,61 @@
 
+<!DOCTYPE html>
+
 <html>
-	<h1> Auction </h1>
+	<title>Auction</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="src/css/login.css">
 	
-	<h2> 2. signup, click <a href="src/php/signup.php">here</a></h2>
+	<body>
+		
+		<h2>home page</h2>
+		
+		<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+		
+		<div id="id01" class="modal">
+			
+			<form class="modal-content animate" action="src/php/login_validate.php" method="post">
+				<div class="imgcontainer">
+					<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+					<img src="img/derp.jpg" alt="Avatar">
+				</div>
+				
+				<div class="imgcontainer">41352 : 41352</div>
+				
+				<div class="container">
+					<label><b>Username</b></label>
+					<input type="text" placeholder="Enter Username or 41352" name="nif" required>
+					
+					<label><b>Password</b></label>
+					<input type="password" placeholder="Enter Password or 41352" name="pin" required>
+						
+					<button type="submit">Login</button>
+					<button type="button" class="signupbtn">Sign up</button>
+					<input type="checkbox" checked="checked"> Remember me
+				</div>
+				
+				<div class="container" style="background-color:#f1f1f1">
+					<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+					<span class="psw">Forgot <a href="#">password?</a></span>
+				</div>
+			</form>
+		</div>
+		
+		<script>
+		// Get the modal
+		var modal = document.getElementById('id01');
+		
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+		</script>
+
+	</body>
 	
-	<h2> 2. view auctions and bid, click <a href="src/php/bid.php">here</a></h2>
-	
-	<h2> 5. signup by day, click <a href="src/php/transaction.php">here</a></h2>
-	
-	<h2> <a href="src/php/logout.php">logout</a></h2>
 </html>
+
+
 
