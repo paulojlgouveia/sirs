@@ -1,7 +1,6 @@
 
 <?php
 	require_once($_SERVER['DOCUMENT_ROOT'].'/src/php/functions.php');
-	enable_error_reporting();
 	require_once($_SERVER['DOCUMENT_ROOT'].'/src/php/queries.php');
 	require_once($_SERVER['DOCUMENT_ROOT'].'/src/php/exceptions.php');
 	
@@ -29,16 +28,6 @@
 		echo "FIXME proper error\n user does not exist."."<br>";
 		die(header("location: login.html"));
 	}
-	
-	
-	
-	echo "<br>"."<"."<br>";
-	
-	echo $data['user_id']."<br>";
-	echo $data['username']."<br>";
-	echo $data['password']."<br>";
-	
-	echo ">"."<br>";
 	
 	
 	// verify password
