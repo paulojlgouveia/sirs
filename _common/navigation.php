@@ -25,19 +25,19 @@
 	
 	<?php if (isset($_SESSION['id'])) { ?>
 		
-		<li class="right"><a href="logout.php">Logout</a></li>
-		<li class="right"><a href="_user/home.php"><?=$_SESSION['username'];?></a></li>
+		<li class="right"><a href="/logout.php">Logout</a></li>
+		<li class="right"><a href="/_user/home.php"><?=$_SESSION['username'];?></a></li>
 		
 		<?php if ($_SESSION['level'] == 2) { ?>
 			
-			<li class="right"><a href="_administration/home.php">Administration</a></li>
+			<li class="right"><a href="/_administration/home.php">Administration</a></li>
 			
 		<?php } ?>
 		
 	<?php } else { ?>
 		
-		<li class="right"><a href="register.html">Register</a></li>
-		<li class="right"><a href="login.html">Login</a></li>
+		<li class="right"><a href="/register.html">Register</a></li>
+		<li class="right"><a href="/login.html">Login</a></li>
 		
 	<?php } ?>
 	

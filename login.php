@@ -1,9 +1,9 @@
 
 <?php
-
-	require_once($_SERVER['DOCUMENT_ROOT'].'src/php/functions.php');
-	require_once($_SERVER['DOCUMENT_ROOT'].'src/php/queries.php');
-	require_once($_SERVER['DOCUMENT_ROOT'].'src/php/exceptions.php');
+	require_once($_SERVER['DOCUMENT_ROOT'].'/src/php/functions.php');
+	enable_error_reporting();
+	require_once($_SERVER['DOCUMENT_ROOT'].'/src/php/queries.php');
+	require_once($_SERVER['DOCUMENT_ROOT'].'/src/php/exceptions.php');
 	
 	session_start();
 
@@ -31,6 +31,7 @@
 	}
 	
 	
+	
 	echo "<br>"."<"."<br>";
 	
 	echo $data['user_id']."<br>";
@@ -48,11 +49,11 @@
 	
 	
 	// pass the values into the session
-	$_SESSION['id'] = $data['id'];
+	$_SESSION['id'] = $data['user_id'];
 	$_SESSION['username'] = $data['username'];
 	$_SESSION['level'] = $data['level'];
 	
-
+	
 	// get back
 	if ($data['level'] == 2) {
 		exit(header("location: _administration/home.php"));
