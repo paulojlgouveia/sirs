@@ -3,7 +3,6 @@
 
 <?php
 	session_start();
-	phpinfo();
 ?>
 
 
@@ -13,17 +12,25 @@
 	
 	<body>
 		
-		<?php require($DOCUMENT_ROOT . "header.html"); ?>
-		<?php require($DOCUMENT_ROOT . "navigation.php"); ?>
+		<?php require($_SERVER['DOCUMENT_ROOT']. "/_common/header.html"); ?>
+		<?php require($_SERVER['DOCUMENT_ROOT']. "/_common/navigation.php"); ?>
 		
 		<h1>home page</h1>
 		
-		<?php require($DOCUMENT_ROOT . "content.php"); ?>
+		FIXME check if id= or class=
+		<div id="new" class="center">
+			<?php require($_SERVER['DOCUMENT_ROOT']. "new.php"); ?>
+		</div>
+		
+		<br>
+		<a href="src/php/info.php"> website info, please no exploit, not yet</a>
+		
+		<div id="hot">
+			<?php require($_SERVER['DOCUMENT_ROOT']. "new.php"); ?>
+		</div>
 		
 		
-		
-		
-		<?php require($DOCUMENT_ROOT . "footer.html"); ?>
+		<?php require($_SERVER['DOCUMENT_ROOT']. "/_common/footer.html"); ?>
 		
 	</body>
 	

@@ -1,8 +1,9 @@
 
 <?php
 
-	include("config.php");
-	require_once("src/php/functions.php");
+	require_once($_SERVER['DOCUMENT_ROOT']. 'src/php/config.php');
+	require_once($_SERVER['DOCUMENT_ROOT']. 'src/php/functions.php');
+	require_once($_SERVER['DOCUMENT_ROOT']. 'src/php/queries.php');
 
 	session_start();
 	
@@ -15,16 +16,10 @@
 
 	// get user's data from database
 	try {		
-		$sql = "SELECT id, username, password, level FROM user WHERE username=?";
-		$stmt = $pdo->prepare($sql);
-		if (!($stmt->execute([$username]))) {
-			throw new PDOException("execution of query failed!");
-		}
-		
-		$data = $stmt->fetch();
+		$data = get_login_info($username);
 		
 	} catch(PDOException $e) {
-		log_pdo_error($e->getMessage());
+		log_query_error($e->getMessage());
 	}
 	
 	echo "<br>"."<"."<br>";

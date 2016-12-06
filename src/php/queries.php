@@ -4,8 +4,8 @@
 // single place for queries
 // to avoid having to change several files upon DB update
 
-	include($_SERVER['DOCUMENT_ROOT']. "/src/php/config.php");
 	session_start();
+	include($_SERVER['DOCUMENT_ROOT']. "/src/php/config.php");
 
 
 	function get_login_info($username) {

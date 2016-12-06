@@ -13,11 +13,21 @@ CREATE TABLE user(
 	username	VARCHAR(255) NOT NULL,
 	password	VARCHAR(255) NOT NULL,
 	level		INT NOT NULL DEFAULT 1,
-	name		VARCHAR(255) NOT NULL,
 	email		VARCHAR(255),
-	cc			INT,
 
 	PRIMARY KEY (user_id)
+);
+
+-- different table to keep encripted personal info
+-- diferent priveleges on this table
+DROP TABLE IF EXISTS personal ;
+CREATE TABLE personal(
+	user_id		INT NOT NULL,
+	name		VARCHAR(255) NOT NULL,
+	cc			VARCHAR(255) NOT NULL,
+
+	PRIMARY KEY (user_id),
+	FOREIGN KEY (user_id) REFERENCES user(user_id)
 );
 
 
@@ -56,11 +66,11 @@ CREATE TABLE auction(
 	auction_id	INT NOT NULL,
 	auctioneer	INT NOT NULL,
 	base_value	FLOAT NOT NULL,
-	value		FLOAT NOT NULL,
-	increment	FLOAT NOT NULL DEFAULT 0,
+	value		FLOAT NOT NULL DEFAULT 69.69,		-- remove? use max from bids table
+	increment	FLOAT NOT NULL DEFAULT 0.01,
 	n_bids		INT NOT NULL DEFAULT 0,
-	start		TIMESTAMP,	-- can use this as open flag ?
-	end			TIMESTAMP,
+	start		TIMESTAMP  NULL,
+	end			TIMESTAMP  NULL,
 	
 	PRIMARY KEY (auction_id),
 	FOREIGN KEY (auction_id) REFERENCES item(item_id),
@@ -70,8 +80,8 @@ CREATE TABLE auction(
 
 DROP TABLE IF EXISTS bid ;
 CREATE TABLE bid(
-	user_id		INT NOT NULL AUTO_INCREMENT,
 	auction_id	INT NOT NULL,
+	user_id		INT NOT NULL,
 	amount		FLOAT NOT NULL,
 	time		TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
