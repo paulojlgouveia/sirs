@@ -1,6 +1,18 @@
 
 <?php
 
+// top level exception handler for uncaught exceptions
+function uncaught_exception_handler($exception) {
+	
+	log_top_level_error($exception->getMessage());
+	
+	die(header("location: error_page.html"));	
+}
+
+set_exception_handler('uncaught_exception_handler');
+
+
+
 class QueryException extends Exception {
 
     // redefine exception so message isn't optional
@@ -15,14 +27,6 @@ class QueryException extends Exception {
 }
 
 
-// top level exception handler for uncaught exceptions
-function uncaught_exception_handler($exception) {
-	
-	log_top_level_error($exception->getMessage());
-	
-	header("Location: ".$_SERVER['DOCUMENT_ROOT']."/error_page.html");
-// 	header("Location: {$_SERVER['DOCUMENT_ROOT']}/error_page.html");
-	
-}
+
 
 ?>

@@ -1,7 +1,7 @@
 
 <?php
 
-	function enable_error_report() {
+	function enable_error_reporting() {
 		ini_set('display_startup_errors', 1);
 		ini_set('display_errors', 1);
 		error_reporting(-1);
@@ -16,7 +16,7 @@
 
 
 	// input sanitization FIXME
-	function clean($data) {
+	function clean_input($data) {
 // 		$data = trim($data);
 // 		$data = stripslashes($data);
 // 		$data = htmlspecialchars($data);
@@ -25,14 +25,20 @@
 	}
 
 	
-	// cleans and displays an error message FIXME
+
+	// error logging //
+	
 	function log_pdo_error($message) {
 		file_put_contents('log/PDO_errors.txt', $message, FILE_APPEND);
 	}
 
-	
+	function log_query_error($message) {
+		file_put_contents('log/PDO_errors.txt', $message, FILE_APPEND);
+	}
 
-
+	function log_top_level_error($message) {
+		file_put_contents('log/PDO_errors.txt', $message, FILE_APPEND);
+	}
 
 ?>
 

@@ -4,8 +4,8 @@
 // single place for queries
 // to avoid having to change several files upon DB update
 
-	session_start();
-	include($_SERVER['DOCUMENT_ROOT']. "/src/php/config.php");
+	require_once($_SERVER['DOCUMENT_ROOT'].'/src/php/config.php');
+	require_once($_SERVER['DOCUMENT_ROOT'].'/src/php/exceptions.php');
 
 
 	function get_login_info($username) {
@@ -19,7 +19,7 @@
 		$stmt = $pdo->prepare($sql);
 		
 		if (!($stmt->execute([$username]))) {
-			throw new PDOException("execution of query failed!");
+			throw new QueryException($sql);
 		}	
 		
 		$pdo = null;
@@ -47,7 +47,7 @@
 				
 		$stmt = $pdo->prepare($sql);
 		if (!($stmt->execute())) {
-			throw new PDOException("execution of query failed!");
+			throw new QueryException($sql);
 		}
 		
 		$pdo = null;
@@ -72,7 +72,7 @@
 				
 		$stmt = $pdo->prepare($sql);
 		if (!($stmt->execute())) {
-			throw new PDOException("execution of query failed!");
+			throw new QueryException($sql);
 		}
 		
 		$pdo = null;
@@ -99,7 +99,7 @@
 				
 		$stmt = $pdo->prepare($sql);
 		if (!($stmt->execute())) {
-			throw new PDOException("execution of query failed!");
+			throw new QueryException($sql);
 		}
 		
 		$pdo = null;
@@ -129,7 +129,7 @@
 				
 		$stmt = $pdo->prepare($sql);
 		if (!($stmt->execute())) {
-			throw new PDOException("execution of query failed!");
+			throw new QueryException($sql);
 		}
 		
 		$pdo = null;
@@ -153,7 +153,7 @@
 				
 		$stmt = $pdo->prepare($sql);
 		if (!($stmt->execute())) {
-			throw new PDOException("execution of query failed!");
+			throw new QueryException($sql);
 		}
 		
 		$pdo = null;

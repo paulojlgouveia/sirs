@@ -2,6 +2,9 @@
 -- mysql -u root -p
 -- ju57 50m3 p455w0rD
 
+
+\W
+
 use auctionsDB;
 
 SET foreign_key_checks = 0 ;

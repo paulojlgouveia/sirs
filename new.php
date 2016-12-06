@@ -2,11 +2,13 @@
 
 <?php 
 
+	require_once('src/php/functions.php');
+	require_once('src/php/queries.php');
+	require_once('src/php/exceptions.php');
+	
 	session_start();
-	require_once($_SERVER['DOCUMENT_ROOT']. 'src/php/config.php');
-	require_once($_SERVER['DOCUMENT_ROOT']. 'src/php/functions.php');
-	require_once($_SERVER['DOCUMENT_ROOT']. 'src/php/queries.php');
-
+	
+	
 	// prepare data before going into the page
 	try {
 		$data = get_new_items();
@@ -19,11 +21,14 @@
 
 
 
-<link rel="stylesheet" href="src/css/general.css">
-<link rel="stylesheet" href="src/css/productListing.css">
+<link rel="stylesheet" href="/src/css/general.css">
+<link rel="stylesheet" href="/src/css/productListing.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
+
+
+<h3>new auctions</h3>
 
 <?php foreach($data as $item) { ?>
 
@@ -32,7 +37,7 @@
 		<div class="row">
 				<div class="col-md-5 col-sm-12 col-xs-12">
 					<div class="product-image"> 
-						<img src="img/<?=$item['image']?>" class="img-responsive rotprod"> 
+						<img src="/img/items/<?=$item['username']?>/<?=$item['image']?>" class="img-responsive rotprod"> 
 					</div>
 				</div>
 				<div class="col-md-7 col-sm-12 col-xs-12">

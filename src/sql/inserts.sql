@@ -1,4 +1,6 @@
 
+\W
+
 DELIMITER ;
 
 SET foreign_key_checks = 0 ;
@@ -24,7 +26,7 @@ INSERT INTO item (name, owner_id, description, image) VALUES
 ('Stick of Truth', 4, "A twig that possesses limitless power.", 'stick.jpg'),
 ('Clyde Frog', 3, "It was known as the favorite toy.", 'clyde_frog.jpg'),
 ('Faith +1', 3, "Faith + 1 is the self-titled debut album by the Christian rock band of the same name.", 'faith_+1.jpg'),
-('Memberberries', 5, "Member when the project was almost finished? Yea, I member...", 'memberberies.jpg');
+('Memberberries', 5, "Member when the project was almost finished? Yea, I member!<br> Member when the power went out and we lost the entire project? Yea... I member.", 'memberberries.jpg');
 
 
 INSERT INTO auction (auction_id, auctioneer, base_value, increment, start) VALUES
