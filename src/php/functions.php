@@ -29,15 +29,19 @@
 	// error logging //
 	
 	function log_pdo_error($message) {
+		echo $message;
 		file_put_contents('log/PDO_errors.txt', $message, FILE_APPEND);
 	}
 
 	function log_query_error($message) {
-		file_put_contents('log/PDO_errors.txt', $message, FILE_APPEND);
+			echo $message;
+
+		file_put_contents('log/query_errors.txt', $message, FILE_APPEND);
 	}
 
 	function log_top_level_error($message) {
-		file_put_contents('log/PDO_errors.txt', $message, FILE_APPEND);
+		echo $message;
+		file_put_contents('log/server_errors.txt', $message, FILE_APPEND);
 	}
 
 ?>

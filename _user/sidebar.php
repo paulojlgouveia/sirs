@@ -1,6 +1,6 @@
 
 
-<link rel="stylesheet" href="/src/css/sidebar.css">
+<link rel="stylesheet" href="/src/css/sidebarBootstrap.css">
 
 
 <ul class="sidebar">

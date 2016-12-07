@@ -9,7 +9,7 @@ function uncaught_exception_handler($exception) {
 	die(header("location: error_page.html"));	
 }
 
-set_exception_handler('uncaught_exception_handler');
+// set_exception_handler('uncaught_exception_handler');
 
 
 

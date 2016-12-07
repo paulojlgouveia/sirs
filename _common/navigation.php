@@ -8,20 +8,20 @@
 
 
 <ul class="topnav">
-	<li><a href="home.php">Home</a></li>
+	<li class="topnav"><a href="home.php">Home</a></li>
 	
-	<li><a href="about.php">About</a></li>
+	<li class="topnav"><a href="/_user/ProductPage.php">About</a></li>
 	
 	<li class="dropdown">
 		<a href="javascript:void(0)" class="dropbtn">Dropdown</a>
 		<div class="dropdown-content">
-			<a href="#">Link 1</a>
+			<a href="/_user/ProductPage.php">Link 1</a>
 			<a href="#">Link 2</a>
 			<a href="#">Link 3</a>
 		</div>
 	</li>
 	
-	<li><a href="#contact">Contact</a></li>
+	<li class="topnav"><a href="#contact">Contact</a></li>
 	
 	<?php if (isset($_SESSION['id'])) { ?>
 		

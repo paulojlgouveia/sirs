@@ -7,6 +7,12 @@
 
 use auctionsDB;
 
+
+
+-----------------------------------------------------------------------------------------
+-- tables
+-----------------------------------------------------------------------------------------
+
 SET foreign_key_checks = 0 ;
 
 
@@ -21,6 +27,7 @@ CREATE TABLE user(
 	PRIMARY KEY (user_id)
 );
 
+
 -- different table to keep encripted personal info
 -- diferent priveleges on this table
 DROP TABLE IF EXISTS personal ;
@@ -34,51 +41,24 @@ CREATE TABLE personal(
 );
 
 
-DROP TABLE IF EXISTS item ;
-CREATE TABLE item(
-	item_id		INT NOT NULL AUTO_INCREMENT,
-	name		VARCHAR(255) NOT NULL,
-	owner_id	INT NOT NULL,
-	description	VARCHAR(255),
-	image		VARCHAR(255),
-
-	PRIMARY KEY (item_id),
-	FOREIGN KEY (owner_id) REFERENCES user(user_id)
-);
-
-
--- DROP TABLE IF EXISTS auction ;
--- CREATE TABLE auction(
--- 	auction_id	INT NOT NULL,
--- 	open		BOOLEAN NOT NULL DEFAULT FALSE,
--- 	auctioneer	INT NOT NULL,
--- 	base_value	FLOAT NOT NULL,
--- 	value		FLOAT NOT NULL,
--- 	increment	FLOAT NOT NULL DEFAULT 0,
--- 	n_bids		INT NOT NULL DEFAULT 0,
--- 	start		TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
--- 	end			TIMESTAMP DEFAULT NULL,
--- 	
--- 	PRIMARY KEY (auction_id),
--- 	FOREIGN KEY (auctioneer) REFERENCES user(user_id),
--- 	FOREIGN KEY (item_id) REFERENCES item(item_id)
--- );
 
 DROP TABLE IF EXISTS auction ;
 CREATE TABLE auction(
-	auction_id	INT NOT NULL,
-	auctioneer	INT NOT NULL,
-	base_value	FLOAT NOT NULL,
-	value		FLOAT NOT NULL DEFAULT 69.69,		-- remove? use max from bids table
-	increment	FLOAT NOT NULL DEFAULT 0.01,
+	auction_id	INT NOT NULL AUTO_INCREMENT,
+	owner_id	INT NOT NULL,
+	name		VARCHAR(255) NOT NULL,
+	image		VARCHAR(255),
+	base_value	FLOAT,
+	increment	FLOAT,
 	n_bids		INT NOT NULL DEFAULT 0,
-	start		TIMESTAMP  NULL,
-	end			TIMESTAMP  NULL,
+	start		TIMESTAMP NULL,
+	end			TIMESTAMP NULL,
+	description	VARCHAR(255),
 	
 	PRIMARY KEY (auction_id),
-	FOREIGN KEY (auction_id) REFERENCES item(item_id),
-	FOREIGN KEY (auctioneer) REFERENCES user(user_id)
+	FOREIGN KEY (owner_id) REFERENCES user(user_id)
 );
+
 
 
 DROP TABLE IF EXISTS bid ;
@@ -109,7 +89,47 @@ CREATE TABLE comment(
 );
 
 
+
 SET foreign_key_checks = 1 ;
+
+
+
+-----------------------------------------------------------------------------------------
+-- table views
+-----------------------------------------------------------------------------------------
+
+DROP VIEW IF EXISTS queued_auctions;
+CREATE VIEW queued_auctions AS (
+	SELECT *
+	FROM auction
+	WHERE auction.start IS NULL
+);
+
+
+DROP VIEW IF EXISTS open_auctions;
+CREATE VIEW open_auctions AS (
+	SELECT *
+	FROM auction
+	WHERE auction.start IS NOT NULL AND (auction.end IS NULL OR auction.end > CURRENT_TIMESTAMP)
+);
+
+
+DROP VIEW IF EXISTS closed_auctions;
+CREATE VIEW closed_auctions AS (
+	SELECT *
+	FROM auction
+	WHERE auction.start IS NOT NULL AND (auction.end IS NULL OR auction.end < CURRENT_TIMESTAMP)
+);
+
+
+
+-----------------------------------------------------------------------------------------
+-- triggers
+-----------------------------------------------------------------------------------------
+
+
+
+
 
 
 

@@ -5,7 +5,7 @@
 <html>
 	<title>Auction - login</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="src/css/login.css">
+	<link rel="stylesheet" href="/src/css/login.css">
 	
 	<head>
 	
@@ -17,28 +17,34 @@
 		
 		<form action="register.php" method="post">
 			<div class="imgcontainer">
-				<img src="img/avatar_default.jpg" alt="Avatar">
+				<img src="/img/avatars/default.jpg" alt="Avatar">
 			</div>
 			
 			<div class="container">
 				<label><b>Username</b></label>
 				<input type="text" placeholder="Enter username" name="username" required>
 				
-				<label><b>Name</b></label>
-				<input type="text" placeholder="Enter your name" name="name" required>
+<!-- 			FIXME move to personal info in user area -->
+<!--			<label><b>Name</b></label>
+				<input type="text" placeholder="Enter your name" name="name" required>-->
 				
+				<br>
 				<label><b>Email</b></label>
 				<input type="email" placeholder="Enter your email address" name="email" required>
 				
+				<br>
 				<label><b>Password</b></label>
 				<input type="password" placeholder="Enter password" name="password" required>
 				
+				<br>
 				<label><b>Retipe password</b></label>
 				<input type="password" placeholder="Retipe your password" name="rpassword" required>
+
+<!-- 			FIXME move to personal info in user area -->
+<!--			<label><b>Credit Card</b></label>
+				<input type="text" placeholder="Enter your credit card number" name="cc" required>-->
 				
-				<label><b>Credit Card</b></label>
-				<input type="text" placeholder="Enter your credit card number" name="cc" required>
-				
+				<br>
 				<button type="submit">Register</button>
 			</div>
 			
