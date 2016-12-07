@@ -1,6 +1,5 @@
 
 <?php 
-
 	require_once($_SERVER['DOCUMENT_ROOT'].'/src/php/queries.php');
 	require_once($_SERVER['DOCUMENT_ROOT'].'/src/php/exceptions.php');
 	
@@ -21,7 +20,6 @@
 		log_query_error($e->getMessage());
 	}
 	
-	
 ?>
 
 
@@ -34,6 +32,25 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
+	<style>
+/*		http://stackoverflow.com/questions/13465052/html-code-to-put-image-in-left-and-text-in-right-side-of-screen-with-footer-belo
+		.product-image {
+			float: left;
+		}*/
+		
+		img.item-quickview {
+			width:4cm;
+			height:4cm;
+		}
+		
+		div.section {
+			border: 1px solid darkgrey;
+		}
+		
+		article {
+			border: 1px solid darkgrey;
+		}
+	</style>
 	
 	<body>
 		
@@ -48,7 +65,7 @@
 		FIXME check if id= or class=
 		<div class="center">
 			
-			<div id="new-auctions">
+			<div id="new-auctions" class="section">
 				
 				<h5> Recenetly opened </h5>
 				
@@ -56,12 +73,13 @@
 					
 					<article href="#">
 						<div class="product-image"> 
-							<img src="/img/items/<?=$item['username']?>/<?=$item['image']?>"> 
+							<img class="item-quickview"
+								src="/img/items/<?=$item['username']?>/<?=$item['image']?>"> 
 						</div>
 						
 						<div class="product-info">
 							<h5> <?=$item['name']?> </h5>
-							<p><i>from</i></p> <?=$item['username']?> </h6>
+							<p><i>from</i> <?=$item['username']?> </p>
 							<p><?=$item['description']?></p>
 						</div>
 						
@@ -71,7 +89,7 @@
 				
 			</div>
 			
-			<div id="hot-auctions">
+			<div id="hot-auctions" class="section">
 				
 				<h5> Most bid </h5>
 				
@@ -79,11 +97,13 @@
 					
 					<article href="#">
 						<div class="product-image"> 
-							<img src="/img/items/<?=$item['username']?>/<?=$item['image']?>"> 
+							<img class="item-quickview"
+								src="/img/items/<?=$item['username']?>/<?=$item['image']?>"> 				
 						</div>
 						
 						<div class="product-info">
 							<h5> <?=$item['name']?> </h5>
+							<p><i>from</i> <?=$item['username']?> </p>
 							<p><?=$item['description']?></p>
 						</div>
 						
@@ -99,6 +119,5 @@
 	</body>
 	
 </html>
-
 
 

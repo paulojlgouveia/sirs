@@ -22,7 +22,7 @@
  
     background-color: #EBF8FE;
  
-    display: block;
+    display: inline-block;
  
     min-height: 238px;
  
@@ -32,7 +32,7 @@
  
     border: 1px solid #CEEFFF;
  
-    padding-top: 40px;
+    padding:30px;
  
 }
  
@@ -235,7 +235,7 @@
 .product-info.smart-form .rating label {
  
     margin-top:15px;
- 
+    
  
  
 }
@@ -579,3 +579,13 @@
     }
  
 }
+
+.productListingSection{
+
+
+     width:900px;
+     margin:auto;
+     margin-top:100px;
+
+
+ }
