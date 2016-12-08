@@ -1,15 +1,13 @@
 
-<?php 
+<?php
 
-	require_once('src/php/functions.php');
-	require_once('src/php/queries.php');
-	require_once('src/php/exceptions.php');
-	
 	session_start();
 	
-	// prepare data before going into the page
+	require_once($_SERVER['DOCUMENT_ROOT'].'/src/php/queries.php');
+	require_once($_SERVER['DOCUMENT_ROOT'].'/src/php/exceptions.php');
+	
 	try {
-		$data = get_new_items();
+		$active = get_user_opened_auctions($_SESSION['id']);
 		
 	} catch(PDOException $e) {
 		log_query_error($e->getMessage());
@@ -27,64 +25,59 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
-	
 	<body>
 		
 		<?php require($_SERVER['DOCUMENT_ROOT'].'/_common/header.html'); ?>
 		<?php require($_SERVER['DOCUMENT_ROOT'].'/_common/navigation.php'); ?>
+		<?php require($_SERVER['DOCUMENT_ROOT'].'/_user/sidebar.php'); ?>
 		
-		<h1> sirs project 2 </h1>
-		<h3><i> the reboot nobody asked for </i></h3>
-
-
+		<h1> SIRS Auction House </h1>
 		
-		FIXME check if id= or class=
-		<div class="center">
-			
-			<div id="new">
+		<div class="productListingSection">
+		
+			<div id="new-auctions" class="section">
 				
-				<?php foreach($data as $item) { ?>
+				<h3> Active Auctions </h3>
+				
+				<?php foreach($active as $item) { ?>
 					
-					<!-- start product -->	 
 					<div class="prod-info-main prod-wrap clearfix">
+						
 						<div class="row">
+							
 							<div class="col-md-5 col-sm-12 col-xs-12">
 								<div class="product-image"> 
-									<img src="/img/items/<?=$item['username']?>/<?=$item['image']?>" class="img-responsive rotprod"> 
+									<img src="/img/items/<?=$_SESSION['username']?>/<?=$item['image']?>" class="img-responsive rotprod" style="max-height:250px"> 
 								</div>
 							</div>
+							
 							<div class="col-md-7 col-sm-12 col-xs-12">
+								
 								<div class="product-detail">
-										<h5 class="name">
-											<a href="#"> <?=$item['name']?>	</a>
-											<a href="#">
-												<span>Product Category</span>
-											</a>                            
-											
-										</h5>
-										<p class="price-container">
-											<span><?=$item['value']?>€</span>
-										</p>
-										<span class="tag1"></span> 
-								</div>
-									
-								<div class="description">
-									<p><?=$item['description']?></p>
+									<h3 class="name">
+										<a href="#"> <?=$item['name']?>	</a>
+											<span style="color:darkgrey; font-size:16px;">auctioned by <span style="font-size:larger; color:#00AC11">you</span></span>
+									</h3>
+									<p class="price-container">
+										<span style="color:darkgrey; font-size:16px;">current highest bid <span><?=$item['value']?> €</span></span>
+									</p>
+									<span class="tag1"></span> 
 								</div>
 								
 								<div class="product-info smart-form">
 									<div class="row">
 										<div class="col-md-12"> 
-											<a href="javascript:void(0);" class="btn btn-danger btn-cart"><span>Add to cart</span></a>
-											<a href="javascript:void(0);" class="btn btn-info"><span>More info</span></a>
+											<p><?=$item['description']?></p>
+											<a href="javascript:void(0);" class="btn btn-info" style="float:right;"><span>More info</span></a>
 										</div>
 									</div>
 								</div>
+								
 							</div>
+							
 						</div>
 					</div>
-					<!-- end product -->
-				
+					
 				<?php } ?>
 				
 			</div>
@@ -95,6 +88,5 @@
 	</body>
 	
 </html>
-
 
 

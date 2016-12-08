@@ -28,7 +28,7 @@ INSERT INTO auction (owner_id, name, image,  base_value, increment, start, descr
 (3, 'Stick of Truth', 'stick.jpg', 9000.01, 9000.01, NULL, 
 "A twig that possesses limitless power."),
 
-(2, 'Clyde Frog', 'clyde_frog.jpg', NULL, NULL, NULL,
+(2, 'Clyde Frog', 'clyde_frog.jpg', 1, 2, CURRENT_TIMESTAMP,
 "It was known as the favorite toy."),
 
 (2, 'Faith +1', 'faith_+1.jpg', 12.34, 1.00, CURRENT_TIMESTAMP, 
@@ -42,6 +42,7 @@ INSERT INTO auction (owner_id, name, image,  base_value, increment, start, descr
 
 INSERT INTO bid (auction_id, user_id, amount) VALUES
 (4, 2, 3.50),
+(2, 3, 12.34),
 (4, 1, 42.00);
 
 
@@ -50,3 +51,4 @@ INSERT INTO comment (auction_id, author_id, text) VALUES
 
 
 
+UPDATE auction SET end = CURRENT_TIMESTAMP WHERE auction_id = 2;

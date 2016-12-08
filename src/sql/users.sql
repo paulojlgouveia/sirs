@@ -31,6 +31,8 @@ GRANT ALL PRIVILEGES ON auctionsDB.bid TO 'user'@'localhost';
 GRANT ALL PRIVILEGES ON auctionsDB.comment TO 'user'@'localhost';
 GRANT ALL PRIVILEGES ON auctionsDB.personal TO 'user'@'localhost';
 GRANT ALL PRIVILEGES ON auctionsDB.user TO 'user'@'localhost';
+GRANT SELECT (user_id, logout) ON auctionsDB.login TO 'user'@'localhost';
+GRANT INSERT, UPDATE ON auctionsDB.login TO 'user'@'localhost';
 
 GRANT ALL PRIVILEGES ON auctionsDB.public_open_auctions TO 'user'@'localhost';
 GRANT ALL PRIVILEGES ON auctionsDB.queued_auctions TO 'user'@'localhost';
@@ -40,7 +42,9 @@ GRANT ALL PRIVILEGES ON auctionsDB.open_auctions TO 'user'@'localhost';
 
 
 GRANT SELECT ON auctionsDB.user TO 'general'@'localhost';
+GRANT INSERT, UPDATE ON auctionsDB.login TO 'general'@'localhost';
 GRANT SELECT ON auctionsDB.auction TO 'general'@'localhost';
+
 GRANT SELECT ON auctionsDB.public_open_auctions TO 'general'@'localhost';
 
 

@@ -9,7 +9,7 @@ DELIMITER ;
 
 DROP VIEW IF EXISTS public_open_auctions;
 CREATE VIEW public_open_auctions AS (
-	SELECT auction.name, auction.image, auction.start, auction.description
+	SELECT auction.owner_id, auction.name, auction.image, auction.start, auction.description
 	FROM auction
 	WHERE auction.start IS NOT NULL AND (auction.end IS NULL OR auction.end > CURRENT_TIMESTAMP)
 );
